@@ -1,5 +1,4 @@
 $(document).ready(function(){
-	$('.map').hide();
 	
 	var usersBase = [{
 			id:"0",

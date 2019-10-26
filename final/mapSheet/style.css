@@ -1,12 +1,13 @@
 /* This is the div element that contains the map */
 
 #map {
-    height: 100%;
+    width: 300px;
+    height: 300px;
 }
 
 /* Make it the whole window */
-html, body {
+/* html, body {
     height: 100%;
     margin: 0;
     padding: 0;
-}
+} */

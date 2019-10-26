@@ -9,26 +9,32 @@
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
     </head>
     <body>
-        <div>Country: <span id="country"></span></div>
+        <!-- <div>Country: <span id="country"></span></div>
         <div>State: <span id="state"></span></div>
         <div>City: <span id="city"></span></div>
         <div>Latitude: <span id="latitude"></span></div>
         <div>Longitude: <span id="longitude"></span></div>
-        <div>IP: <span id="ip"></span></div>
+        <div>IP: <span id="ip"></span></div> -->
         <button id="test">Test</button>
         <div id="map"></div>
     </body>
     <script>
         $.getJSON('https://geoip-db.com/json/')
          .done (function(location) {
+            // $('#country').html(location.country_name);
+            // $('#state').html(location.state);
+            // $('#city').html(location.city);
+            // $('#latitude').html(location.latitude);
+            // $('#longitude').html(location.longitude);
+            // $('#ip').html(location.IPv4);
             sessionStorage.setItem('Latitude', location.latitude);
             sessionStorage.setItem('Longitude', location.longitude);
          })
-         .then (function reload() {
-             if(!window.location.hash) {
-                 window.location = window.location + '#loaded';
-                 window.location.reload();
-             }
+         .then (function reload (){
+            if(!window.location.hash) {
+            window.location = window.location + '#loaded';
+            window.location.reload();
+            }
          })
          //API KEY AIzaSyAEWs3-ZUx7umrjHU3M2CBfJGTCVpTd96s
          //latlng and key values important
@@ -36,6 +42,7 @@
          // https://maps.googleapis.com/maps/api/geocode/json?latlng=40.714224,-73.961452&key=AIzaSyAEWs3-ZUx7umrjHU3M2CBfJGTCVpTd96s
     </script>
     <script>
+        //window.location.reload();
         function initMap(){
             var userLat = sessionStorage.getItem("Latitude");
             var userLong = sessionStorage.getItem("Longitude");
@@ -72,6 +79,15 @@
                 }
             });
         }
+        //function used to load scripts
+    //     function loadScript(){
+    //     var script = document.createElement('script');
+    //     script.type = 'text/javascript';
+    //     script.async = false;
+    //     script.src = "https://maps.googleapis.com/maps/api/js?key=AIzaSyAEWs3-ZUx7umrjHU3M2CBfJGTCVpTd96s&callback=initMap";
+    //     document.body.appendChild(script);
+    // }
+        //window.onload = loadScript;
     </script>
     <script async defer
     src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAEWs3-ZUx7umrjHU3M2CBfJGTCVpTd96s&callback=initMap">

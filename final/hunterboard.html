@@ -60,6 +60,12 @@ h3{
 body{
   background-color: #474646;
 }
+
+.map {
+	width: 300px;
+	height: 300px;
+	position: static !important;
+}
 	
 </style>
   <meta charset="utf-8">
@@ -69,8 +75,7 @@ body{
   <meta name="author" content="SitePoint">
 
   <link rel="stylesheet" href="mapSheet/styles.css">
-<script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAEWs3-ZUx7umrjHU3M2CBfJGTCVpTd96s">
-</script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
 <script src="scripts/jquery-3.4.1.min.js"></script>
 <script src="scripts/bountyPopulate.js"></script>
 
@@ -95,8 +100,9 @@ body{
 		
 		<span class="attempts"></span>
 		<div>
-		<div class="map">
+		<div id="map">
 		</div>
+		<button id="test">Test</button>
 		<p class="description"></p>
 		</div>
 		
@@ -120,25 +126,81 @@ body{
 	</div>-->
   
   <!--<div id="rectangle" style="width:500px; height:800px; background-color:#717B72"></div>-->
-  
-  <script>
-		//Getting lat and long, reloading page
-		/*$.getJSON('https://geoip-db.com/json/')
-         .then (function () {
 
-			initMap(user);
-			 
-             //if(!window.location.hash) {
-              //   window.location = window.location + '#loaded';
-              //   window.location.reload();
-             //}
-		 });*/
-		 
-	</script>
-	<script>
-	
-        
-	</script>
-	
+
 </body>
+<script>
+	$.getJSON('https://geoip-db.com/json/')
+	 .done (function(location) {
+		// $('#country').html(location.country_name);
+		// $('#state').html(location.state);
+		// $('#city').html(location.city);
+		// $('#latitude').html(location.latitude);
+		// $('#longitude').html(location.longitude);
+		// $('#ip').html(location.IPv4);
+		sessionStorage.setItem('Latitude', location.latitude);
+		sessionStorage.setItem('Longitude', location.longitude);
+	 })
+	 .then (function reload (){
+		if(!window.location.hash) {
+		window.location = window.location + '#loaded';
+		window.location.reload();
+		}
+	 })
+	 //API KEY AIzaSyAEWs3-ZUx7umrjHU3M2CBfJGTCVpTd96s
+	 //latlng and key values important
+	 //would i store these latitude and longitude values using session storage so this function can utilize them?
+	 // https://maps.googleapis.com/maps/api/geocode/json?latlng=40.714224,-73.961452&key=AIzaSyAEWs3-ZUx7umrjHU3M2CBfJGTCVpTd96s
+</script>
+    <script>
+        //window.location.reload();
+        function initMap(){
+            var userLat = sessionStorage.getItem("Latitude");
+            var userLong = sessionStorage.getItem("Longitude");
+            var map = new google.maps.Map(document.getElementById('map'), {
+                zoom: 8,
+                center: new google.maps.LatLng(parseFloat(userLat), parseFloat(userLong)),
+            });
+            var geocoder = new google.maps.Geocoder;
+            var infowindow = new google.maps.InfoWindow;
+            //What will be my event listener?!? How am I going to call the geocode function?
+            document.getElementById('test').addEventListener('click', function() {
+                geocodeLatLong(geocoder, map, infowindow);
+            })
+        }
+        function geocodeLatLong(geocoder, map, infowindow){
+            var userLat = sessionStorage.getItem("Latitude");
+            var userLong = sessionStorage.getItem("Longitude");
+            var latlng = {lat: parseFloat(userLat), lng: parseFloat(userLong)};
+            geocoder.geocode({'location' : latlng}, function(results, status){
+                if (status === 'OK'){
+                    if (results[0]) {
+                        map.setZoom(11);
+                        var marker = new google.maps.Marker({
+                            position: latlng,
+                            map: map
+                        });
+                        infowindow.setContent(results[0].formatted_address);
+                        infowindow.open(map, marker);
+                    } else {
+                        window.alert("No results found");
+                    }
+                } else {
+                    window.alert("Geocoder failed due to: " + status);
+                }
+            });
+        }
+        //function used to load scripts
+    //     function loadScript(){
+    //     var script = document.createElement('script');
+    //     script.type = 'text/javascript';
+    //     script.async = false;
+    //     script.src = "https://maps.googleapis.com/maps/api/js?key=AIzaSyAEWs3-ZUx7umrjHU3M2CBfJGTCVpTd96s&callback=initMap";
+    //     document.body.appendChild(script);
+    // }
+        //window.onload = loadScript;
+    </script>
+    <script async defer
+    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAEWs3-ZUx7umrjHU3M2CBfJGTCVpTd96s&callback=initMap">
+    </script>
 </html>
