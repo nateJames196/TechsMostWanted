@@ -82,9 +82,15 @@ $(document).ready(function(){
 	for (let currUser = 0;currUser < userSet.length;currUser++) {
 		let currentUser = userSet[currUser];
 		let timeSince = currentUser.requested;//TODO
-		$('ul.bounties').append('<li><a href="bountyinfo.html?INFO_HERE">' + currentUser.category + ' - $' + currentUser.bounty +' (' + timeSince + ')</a></li>');
+		$('ul.bounties').append('<li><a id="' + currentUser.id + '" href="#">' + currentUser.category + ' - $' + currentUser.bounty +' (' + timeSince + ')</a></li>');
+		$('#' + currentUser.id).click(function () {
+			bountyLoad(currentUser);
+		});
 	}
 	
-	//
-	
 });
+
+
+function bountyLoad(user) {
+	console.log(user.name);
+}
