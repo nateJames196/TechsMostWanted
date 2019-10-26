@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <style>
+            .flex-container {
+                display: flex;
+                flex-direction: column;
+                flex-wrap: wrap;
+                justify-content: center;
+                align-items: center;
+            }
+            #spacing {
+                margin-top: 22px;
+            }
+            #login {
+                margin-top: 17px;
+                margin-left: 112px;
+            }
+            #loginTitle {
+                text-align: center;
+                margin-left: 35px;
+            }
+        </style>
+    </head>
+    <body>
+        <h1 id="loginTitle">Login</h1>
+        <form class="flex-container">
+            <div>
+                <label for="username">Username: </label>
+                <input type="text" id="username" />
+                <div id="spacing"></div>
+                <label for="password">Password: </label>
+                <input type="password" id="password" />
+                <br />
+                <!-- Add Redirects! -->
+                <input type="submit" value="Login" id="login" />
+            </div>
+        </form>
+    </body>
+    <script src="index.js">
+    </script>
+</html>
