@@ -1,0 +1,127 @@
+<!doctype html>
+
+<html lang="en">
+<head>
+<style>
+	@font-face{
+		font-family: "branding iron";
+		src: url(branding_iron.ttf);
+	}
+	
+	*{
+		font-family: "branding iron";
+	}
+	
+.top {
+  position: absolute;
+  top: 200px;
+  right: 250px;
+  width: 800px;
+	font-size: 40px;
+}
+
+.mid {
+  position: absolute;
+  bottom: 230px;
+  left: 30px;
+  width: 450px;
+	font-size: 35px;
+}
+
+	.login{
+		position: fixed;
+		bottom: ;
+		right: 0;
+		width: 80px;
+		height: 20px;
+		border: 3px solid #73AD21;
+	}
+	.register{
+		position: absolute;
+		bottom: ;
+		right: 100px;
+		width: 80px;
+		height: 20px;
+		border: 3px solid #73AD21;
+	}
+
+h2{
+  position: absolute;
+  bottom: 25%;
+  left: 30%;
+  text-align: center;
+}
+	
+h3{
+	position: relative;
+	bottom: 40px;
+	left: ;
+	
+	text-align: center;
+}
+
+body{
+  background-color: #474646;
+}
+	
+</style>
+  <meta charset="utf-8">
+
+  <title>User UI</title>
+  <meta name="description" content="User UI">
+  <meta name="author" content="SitePoint">
+
+  <link rel="stylesheet" href="css/styles.css?v=1.0">
+<script src="scripts/jquery-3.4.1.min.js"></script>
+<script src="scripts/bountyPopulate.js"></script>
+
+</head>
+
+
+<body>
+
+
+
+  <script src="js/scripts.js"></script>
+	<img src="assets/boardview.svg" alt="Bounties"/>
+	
+  
+  <div class="top">
+	  <div id="post" style="width:400px; height:100px; text-align: center" onClick=""></div>
+	  <h2>Current Bounty</h2>
+	  <div>
+		<h4 class="username"></h4>
+		<span class="bounty"></span>
+		<span class="category"></span>
+		
+		<span class="attempts"></span>
+		<div>
+		<div class="map"></div>
+		<p class="description"></p>
+		</div>
+		
+		
+	  </div>
+  </div>
+  
+  <div class ="mid">
+	  <div id="hunt" style="width:400px; height:100px; text-align: center" onClick=""></div>
+	  <h2>Available Bounties</h2>
+	  <ul class="bounties"></ul>
+  </div>
+	
+	<!--<div class ="login">
+		<div id="login" style="width:80px; height:20px; background-color: green; border-color:red; text-align: center" onClick=""></div>
+		<h3>Login</h3>
+	</div>
+	<div class ="register">
+		<div id="register" style="width:80px; height:20px; background-color: green; border-color:red; text-align: center" onClick=""></div>
+		<h3>Register</h3>
+	</div>-->
+  
+  <!--<div id="rectangle" style="width:500px; height:800px; background-color:#717B72"></div>-->
+  
+  
+  
+</body>
+</html>
