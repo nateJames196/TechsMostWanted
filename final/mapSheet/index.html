@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Tech's Most Wanted</title>
+        <meta name="viewport" content="initial-scale=1.0">
+        <meta charset="utf-8">
+        <!-- Add stylesheet -->
+        <link rel="stylesheet" type="text/css" href="style.css">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+    </head>
+    <body>
+        <div>Country: <span id="country"></span></div>
+        <div>State: <span id="state"></span></div>
+        <div>City: <span id="city"></span></div>
+        <div>Latitude: <span id="latitude"></span></div>
+        <div>Longitude: <span id="longitude"></span></div>
+        <div>IP: <span id="ip"></span></div>
+        <button id="test">Test</button>
+        <div id="map"></div>
+    </body>
+    <script>
+        $.getJSON('https://geoip-db.com/json/')
+         .done (function(location) {
+            sessionStorage.setItem('Latitude', location.latitude);
+            sessionStorage.setItem('Longitude', location.longitude);
+         })
+         .then (function reload() {
+             if(!window.location.hash) {
+                 window.location = window.location + '#loaded';
+                 window.location.reload();
+             }
+         })
+         //API KEY AIzaSyAEWs3-ZUx7umrjHU3M2CBfJGTCVpTd96s
+         //latlng and key values important
+         //would i store these latitude and longitude values using session storage so this function can utilize them?
+         // https://maps.googleapis.com/maps/api/geocode/json?latlng=40.714224,-73.961452&key=AIzaSyAEWs3-ZUx7umrjHU3M2CBfJGTCVpTd96s
+    </script>
+    <script>
+        function initMap(){
+            var userLat = sessionStorage.getItem("Latitude");
+            var userLong = sessionStorage.getItem("Longitude");
+            var map = new google.maps.Map(document.getElementById('map'), {
+                zoom: 8,
+                center: new google.maps.LatLng(parseFloat(userLat), parseFloat(userLong)),
+            });
+            var geocoder = new google.maps.Geocoder;
+            var infowindow = new google.maps.InfoWindow;
+            //What will be my event listener?!? How am I going to call the geocode function?
+            document.getElementById('test').addEventListener('click', function() {
+                geocodeLatLong(geocoder, map, infowindow);
+            })
+        }
+        function geocodeLatLong(geocoder, map, infowindow){
+            var userLat = sessionStorage.getItem("Latitude");
+            var userLong = sessionStorage.getItem("Longitude");
+            var latlng = {lat: parseFloat(userLat), lng: parseFloat(userLong)};
+            geocoder.geocode({'location' : latlng}, function(results, status){
+                if (status === 'OK'){
+                    if (results[0]) {
+                        map.setZoom(11);
+                        var marker = new google.maps.Marker({
+                            position: latlng,
+                            map: map
+                        });
+                        infowindow.setContent(results[0].formatted_address);
+                        infowindow.open(map, marker);
+                    } else {
+                        window.alert("No results found");
+                    }
+                } else {
+                    window.alert("Geocoder failed due to: " + status);
+                }
+            });
+        }
+    </script>
+    <script async defer
+    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAEWs3-ZUx7umrjHU3M2CBfJGTCVpTd96s&callback=initMap">
+    </script>
+</html>

@@ -1,4 +1,5 @@
 $(document).ready(function(){
+	$('.map').hide();
 	
 	var usersBase = [{
 			id:"0",
@@ -9,8 +10,8 @@ $(document).ready(function(){
 			description: "My mircosoft word keeps crashing",
 			attempts: "1",
 			requested: "2019-01-25",
-			longitude:"4.123",
-			latitude:"5.678",
+			longitude:"-80.1746",
+			latitude:"26.817",
 		},
 		{
 			id:"23",
@@ -93,15 +94,68 @@ $(document).ready(function(){
 	
 	bountyLoad(userSet[0]);
 	
+
+	
 });
 
 
 function bountyLoad(user) {
-	console.log("hi");
 	$('.username').text(user.name);
 	$('.bounty').text(user.bounty);
 	$('.category').text(user.category);
 	$('.attempts').text(user.attempts);
 	$('.description').text(user.description);
-	//TODO: load mask
+	
+	let longitude = user.longitude;
+	let latitude = user.latitude;
+	$.getJSON('https://geoip-db.com/json/')
+         .then (function () {
+
+			initMap(parseFloat(longitude), parseFloat(latitude));
+			 
+             //if(!window.location.hash) {
+              //   window.location = window.location + '#loaded';
+              //   window.location.reload();
+             //}
+		 });
+	//initMap(longitude, latitude);
+}
+
+function initMap(userLong, userLat){
+	//var userLat = sessionStorage.getItem("Latitude");
+	//var userLong = sessionStorage.getItem("Longitude");
+	console.log(userLat);
+	console.log(userLong);
+	var map = new google.maps.Map(document.getElementsByClassName('map')[0], {
+		center: new google.maps.LatLng(userLat, userLong),
+		zoom: 8
+	});
+	var geocoder = new google.maps.Geocoder;
+	var infowindow = new google.maps.InfoWindow;
+	//What will be my event listener?!? How am I going to call the geocode function?
+	//document.getElementById('test').addEventListener('click', function() {
+		geocodeLatLong(geocoder, map, infowindow, userLat, userLong);
+   // })
+}
+
+function geocodeLatLong(geocoder, map, infowindow, userLat, userLong){
+	var latlng = {lat: userLat, lng: userLong};
+	geocoder.geocode({'location' : latlng}, function(results, status) {
+		if (status === 'OK') {
+			console.log(results);
+			if (results[0]) {
+				map.setZoom(11);
+				var marker = new google.maps.Marker({
+					position: latlng,
+					map: map
+				});
+				infowindow.setContent(results[0].formatted_address);
+				infowindow.open(map, marker);
+			} else {
+				window.alert("No results found");
+			}
+		} else {
+			//window.alert("Geocoder failed due to: " + status);
+		}
+	});
 }

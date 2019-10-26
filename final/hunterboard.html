@@ -22,7 +22,7 @@
 
 .mid {
   position: absolute;
-  bottom: 230px;
+  bottom: 50px;
   left: 30px;
   width: 450px;
 	font-size: 35px;
@@ -30,7 +30,6 @@
 
 	.login{
 		position: fixed;
-		bottom: ;
 		right: 0;
 		width: 80px;
 		height: 20px;
@@ -38,7 +37,6 @@
 	}
 	.register{
 		position: absolute;
-		bottom: ;
 		right: 100px;
 		width: 80px;
 		height: 20px;
@@ -55,7 +53,6 @@ h2{
 h3{
 	position: relative;
 	bottom: 40px;
-	left: ;
 	
 	text-align: center;
 }
@@ -71,7 +68,9 @@ body{
   <meta name="description" content="User UI">
   <meta name="author" content="SitePoint">
 
-  <link rel="stylesheet" href="css/styles.css?v=1.0">
+  <link rel="stylesheet" href="mapSheet/styles.css">
+<script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAEWs3-ZUx7umrjHU3M2CBfJGTCVpTd96s">
+</script>
 <script src="scripts/jquery-3.4.1.min.js"></script>
 <script src="scripts/bountyPopulate.js"></script>
 
@@ -96,7 +95,8 @@ body{
 		
 		<span class="attempts"></span>
 		<div>
-		<div class="map"></div>
+		<div class="map">
+		</div>
 		<p class="description"></p>
 		</div>
 		
@@ -121,7 +121,24 @@ body{
   
   <!--<div id="rectangle" style="width:500px; height:800px; background-color:#717B72"></div>-->
   
-  
-  
+  <script>
+		//Getting lat and long, reloading page
+		/*$.getJSON('https://geoip-db.com/json/')
+         .then (function () {
+
+			initMap(user);
+			 
+             //if(!window.location.hash) {
+              //   window.location = window.location + '#loaded';
+              //   window.location.reload();
+             //}
+		 });*/
+		 
+	</script>
+	<script>
+	
+        
+	</script>
+	
 </body>
 </html>
