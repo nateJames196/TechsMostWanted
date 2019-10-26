@@ -43,25 +43,30 @@ $(document).ready(function(){
 			requested: "2019-01-02",
 			longitude:"4.123",
 			latitude:"5.678",
-		}];
+	}];
 	//First, sort the users by date.
 	let userSet = [];
-	for (let currDate = 0;currDate < usersBase.length;currDate++) {
-		let currentUser = usersBase[currDate];
-		let currentDate = new Date(currentUser.requested);		
-		let currentTime = currentDate.getTime();
-		if (currDate == 0) {
+	for (let currUser = 0;currUser < usersBase.length;currUser++) {
+		let currentUser = usersBase[currUser];
+		if (currUser == 0) {
 			userSet.push(currentUser);
-			console.log(userSet[0]);
 			continue;
 		}
+		
+		let currentDate = new Date(currentUser.requested);		
+		let currentTime = currentDate.getTime();
 		
 		let minDate = new Date(userSet[0].requested);
 		let minTime = minDate.getTime();
 		if (currentTime < minTime) {
 			userSet.unshift(currentUser);
 		} else if (currentTime == minTime) {
-			//for (currCategory = 0;currCategory < )
+			if (userSet[0].bounty <= currentUser.bounty) {
+				//If the top bounty is lower, put the new one on top
+				userSet.unshift(currentUser);
+			} else {
+				userSet.push(currentUser)
+			} 
 		} else {
 			userSet.push(currentUser);
 		}
