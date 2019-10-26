@@ -1,12 +1,141 @@
 <!doctype html>
-<html>
+
+<html lang="en">
 <head>
-<meta charset="utf-8">
-<title>Post a Bounty</title>
+<style>
+	@font-face{
+		font-family: "branding iron";
+		src: url(branding_iron.ttf);
+	}
+	
+	*{
+		font-family: "branding iron";
+	}
+	
+form {
+	text-align: center;
+}
+textarea {
+	margin-left: 100px;
+}
+.top {
+  position: absolute;
+  top: 170px;
+  left: 200px;
+  width: 800px;
+	font-size: 40px;
+}
+
+.mid {
+  position: absolute;
+  bottom: 450px;
+  left: 30px;
+  width: 450px;
+	font-size: 35px;
+}
+
+	.login{
+		position: absolute;
+		bottom: 400px;
+		right: 900px;
+		width: 450px;
+		font-size: 35px;
+	}
+	.register{
+		position: absolute;
+		bottom: 400px;
+		right: 200px;
+		width: 450px;
+		font-size: 35px;
+	}
+	.price{
+		
+	}
+
+h2{
+  position: absolute;
+  bottom: 25%;
+  left: 30%;
+  text-align: center;
+}
+	
+h3{
+	position: relative;
+	bottom: 40px;
+	left: ;
+	
+	text-align: center;
+}
+
+body{
+  background-color: #474646;
+}
+	
+</style>
+  <meta charset="utf-8">
+
+  <title>User UI</title>
+  <meta name="description" content="User UI">
+  <meta name="author" content="SitePoint">
+
+  <link rel="stylesheet" href="css/styles.css?v=1.0">
+
+
 </head>
 
-<body>
-<img src="assets/makebounty.svg" alt="Bounties"/>
 
+<body>
+
+
+
+  
+	<img src="assets/makebounty.svg" alt="Bounties"/>
+	
+  
+  <div class ="top">
+	  <div id="post" style="width:400px; height:100px; text-align: center" onClick=""></div>
+	  <h2>Post a Bounty</h2>  
+  </div>
+  
+  <div class ="mid">
+	  <div id="hunt" style="width:400px; height:100px; text-align: center" onClick=""></div>
+	  <h2>Set Price</h2>
+	  <form>
+			<input type="text" name="none" value="$35"><br>
+	  </form>
+  </div>
+	
+	<div class ="login">
+		<div id="login" style="width:400px; height:100px; text-align: center" onClick=""></div>
+		<h3>Location/Address</h3>
+		<form>
+				<input type="text" name="none" value="0106 Westy Westy Lane"><br>
+		</form>
+	</div>
+	<div class ="register">
+		<div id="register" style="width:400px; height:100px; text-align: center" onClick=""></div>
+		<h3>Description</h3>
+		<form>
+			<textarea rows = "5" cols = "50" name = "description">
+				Old Joe is at it again! He spilled orange juice all over my monitor, and my keyboard is fried! I need some help, boss.
+			</textarea
+		</form>
+	</div>
+	
+	<div id="price" style=" position: absolute; height: 500px; width: 400px; bottom: 100px; left: 100px"></div>
+	
+	<div id="location" style="position: absolute; height: 450px; width: 600px; bottom: 150px; left: 600px"></div>"
+	
+	<div id="description" style="position: absolute; height: 450px; width: 450px; bottom: 150px; right: 100px"></div>"
+	
+	<div id="submit" style="position: absolute; height: 100px; width: 200px; bottom: 100px; right: 50px">
+	<button type="button" style="font-size: 25px" onClick="window.location.href = 'Landing Page.html'">Submit</button>
+	</div>
+	
+  
+  <!--<div id="rectangle" style="width:500px; height:800px; background-color:#717B72"></div>-->
+  
+  
+  
 </body>
 </html>

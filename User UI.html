@@ -1,10 +1,143 @@
 <!doctype html>
-<html>
+
+<html lang="en">
 <head>
-<meta charset="utf-8">
-<title>Untitled Document</title>
+<style>
+	@font-face{
+		font-family: "branding iron";
+		src: url(branding_iron.ttf);
+	}
+	
+	*{
+		font-family: "branding iron";
+	}
+	
+.top {
+  position: absolute;
+  top: 180px;
+  left: 250px;
+  width: 800px;
+	font-size: 40px;
+}
+
+.top-left {
+  position: absolute;
+  bottom: 410px;
+  left: -20px;
+  width: 580px;
+	font-size: 28px;
+}
+
+	.top-mid{
+		position: absolute;
+		bottom: 410px;
+		left: 550px;
+		width: 650px;
+		font-size: 28px;
+	}
+	.top-right{
+		position: absolute;
+		bottom: 400px;
+		right: 80px;
+		width: 650px;
+		font-size: 28px;
+	}
+	.bottom-left{
+		position: absolute;
+		bottom: 110px;
+		left: 20px;
+		width: 580px;
+		font-size: 28px;
+	}
+	.bottom-mid{
+		position: absolute;
+		bottom: 110px;
+		left: 580px;
+		width: 650px;
+		font-size: 28px;
+	}
+	.bottom-right{
+		position: absolute;
+		bottom: 110px;
+		right: 20px;
+		width: 650px;
+		font-size: 28px;
+	}
+
+h2{
+  position: absolute;
+  bottom: 25%;
+  left: 30%;
+  text-align: center;
+}
+	
+h3{
+	position: relative;
+	bottom: 40px;
+	left: ;
+	
+	text-align: center;
+}
+
+body{
+  background-color: #474646;
+}
+	
+</style>
+  <meta charset="utf-8">
+
+  <title>User UI</title>
+  <meta name="description" content="User UI">
+  <meta name="author" content="SitePoint">
+
+  <link rel="stylesheet" href="css/styles.css?v=1.0">
+
+
 </head>
 
+
 <body>
+
+
+
+  <script src="js/scripts.js"></script>
+	<img src="SVG files/What kind of help do you need (User gui) revised 3.svg" alt="Bounties"/>
+	
+  
+  <div class ="top">
+	  <div id="post" style="width:400px; height:100px; text-align: center" onClick=""></div>
+	  <h2>What is your issue?</h2>
+  </div>
+  
+  <div class ="top-left">
+	  <div id="hunt" style="width:400px; height:100px; text-align: center" onClick=""></div>
+	  <h2><a href="Post a bounty.html">I don't know what's going on.</a></h2>
+  </div>
+	
+	<div class ="top-mid">
+		<div id="login" style="width:400px; height:100px; text-align: center" onClick=""></div>
+		<h2><a href="Post a bounty.html">The internet isn't working/slow.</a></h2>
+	</div>
+	<div class ="top-right">
+		<div id="register" style="width:400px; height:100px; text-align: center" onClick=""></div>
+		<h2><a href="Post a bounty.html">I think/know something is physically broken.</a></h2>
+	</div>
+	<div class ="bottom-left">
+		<div id="data" style="width:400px; height:100px; text-align: center" onClick=""></div>
+		<h2><a href="https://drivesaversdatarecovery.com/data-recovery-services/devices-supported/external-drive-data-recovery/" target="_blank">I need to recover data.</a></h2>
+	</div>
+	<div class ="bottom-mid">
+		<div id="assist" style="width:400px; height:100px; text-align: center" onClick=""></div>
+		<h2><a href="Post a bounty.html">Looking for tech assistance.</a></h2>
+	</div>
+	<div class ="bottom-right">
+		<div id="consult" style="width:400px; height:100px; text-align: center" onClick=""></div>
+		<h2><a href="Post a bounty.html">Looking for tech consultation.</a></h2>
+	</div>
+  
+  <!--<div id="rectangle" style="width:500px; height:800px; background-color:#717B72"></div>-->
+  
+  
+  
 </body>
 </html>
