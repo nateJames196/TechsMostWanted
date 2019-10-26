@@ -12,65 +12,91 @@
 		font-family: "branding iron";
 	}
 	
-.top {
-  position: absolute;
-  top: 200px;
-  right: 250px;
-  width: 800px;
-	font-size: 40px;
-}
+	.top {
+		position: absolute;
+		top: 400px;
+		right: 250px;
+		width: 800px;
+		font-size: 40px;
+	}
 
-.mid {
-  position: absolute;
-  bottom: 50px;
-  left: 30px;
-  width: 450px;
-	font-size: 35px;
-}
+	.mid {
+		position: absolute;
+		bottom: 12px;
+		/* was 230 */
+		left: 30px;
+		width: 450px;
+		font-size: 19px;
+	}
 
 	.login{
 		position: fixed;
+		bottom: ;
 		right: 0;
 		width: 80px;
 		height: 20px;
 		border: 3px solid #73AD21;
 	}
+
 	.register{
 		position: absolute;
+		bottom: ;
 		right: 100px;
 		width: 80px;
 		height: 20px;
 		border: 3px solid #73AD21;
 	}
 
-h2{
-  position: absolute;
-  bottom: 25%;
-  left: 30%;
-  text-align: center;
-}
-	
-h3{
-	position: relative;
-	bottom: 40px;
-	
-	text-align: center;
-}
+	h2{
+		position: absolute;
+		bottom: 25%;
+		left: 30%;
+		text-align: center;
+	}
+		
+	h3{
+		position: relative;
+		bottom: 40px;
+		left: ;
+		
+		text-align: center;
+	}
 
-body{
-  background-color: #474646;
-}
+	body{
+		background-color: #474646;
+	}
+	.bounties {
+		display: inline;
+		bottom: -220px;
+		margin-left: 200px;
+	}
+	li {
+		padding: 20px;
+		margin-left: 80px;
+	}
+	#bountyTitle {
+		margin-bottom: 20px;
+		margin-left: 30px;
+	}
+	.description {
+		display: inline-block;
+		margin-top: 120px;
+		margin-left: 180px;
+		font-size: 25px;
+	}
+	.availableTitle {
+		margin-bottom: 210px;
+	}
+	.username {
+		margin-top: 290px;
+		margin-left: 80px;
+		font-size: 36px;
 
-.map {
-	width: 300px;
-	height: 300px;
-	position: static !important;
-}
-	
-</style>
+	}
+</style>}
   <meta charset="utf-8">
 
-  <title>User UI</title>
+  <title>Hunter UI</title>
   <meta name="description" content="User UI">
   <meta name="author" content="SitePoint">
 
@@ -92,17 +118,14 @@ body{
   
   <div class="top">
 	  <div id="post" style="width:400px; height:100px; text-align: center" onClick=""></div>
-	  <h2>Current Bounty</h2>
-	  <div>
+	  <!-- <h2 id="bountyTitle">Current Bounty</h2> -->
+	  <div style="position: absolute; bottom: 0px; left: 120px; width: 350px; height: 400px">
 		<h4 class="username"></h4>
-		<span class="bounty"></span>
-		<span class="category"></span>
+		<!-- <span class="bounty"></span> -->
+		<!-- <span class="category"></span> -->
 		
-		<span class="attempts"></span>
+		<!-- <span class="attempts"></span> -->
 		<div>
-		<div id="map">
-		</div>
-		<button id="test">Test</button>
 		<p class="description"></p>
 		</div>
 		
@@ -112,7 +135,7 @@ body{
   
   <div class ="mid">
 	  <div id="hunt" style="width:400px; height:100px; text-align: center" onClick=""></div>
-	  <h2>Available Bounties</h2>
+	  <h2 class="availableTitle">Available Bounties</h2>
 	  <ul class="bounties"></ul>
   </div>
 	
