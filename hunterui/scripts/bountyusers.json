@@ -1,0 +1,46 @@
+// id - name - category - bounty - rating - specialinfo - requested - longi - lati
+{
+	"users": [
+		{
+			"id":"0",
+			"name":"Clint Techwood",
+			"bounty": "20.00",
+			"rating":"4",
+			"specialinfo": "",
+			"requested": "2019-09-25",
+			"longitude":"4.123",
+			"latitude":"5.678",
+		},
+		{
+			"id":"23",
+			"name":"Conway Conwayerson",
+			"bounty": "10.00",
+			"rating":"2",
+			"specialinfo": "",
+			"requested": "2019-10-03",
+			"longitude":"4.123",
+			"latitude":"5.678",
+		},
+		{
+			"id":"55",
+			"name":"Easty West",
+			"bounty": "60.00",
+			"rating":"5",
+			"specialinfo": "",
+			"requested": "2019-09-25",
+			"longitude":"5.000",
+			"latitude":"4.999",
+		},
+		{
+			"id":"2",
+			"name":"Old Jim Bob",
+			"bounty": "1.00",
+			"rating":"1",
+			"specialinfo": "",
+			"requested": "2019-01-02",
+			"longitude":"4.123",
+			"latitude":"5.678",
+		}
+		
+	]
+}
